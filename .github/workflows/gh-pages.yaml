@@ -16,5 +16,5 @@ jobs:
           flutter-version: '3.22.2'
       - uses: bluefireteam/flutter-gh-pages@v8
         with:
-          workingDir: app/build/web
+          workingDir: app
           webRenderer: canvaskit
