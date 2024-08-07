@@ -14,7 +14,6 @@ jobs:
         with:
           channel: 'stable'
           flutter-version: '3.22.2'
-      - uses: bluefireteam/flutter-gh-pages@v8
+      - uses: bluefireteam/flutter-gh-pages@v7
         with:
           workingDir: app
-          webRenderer: canvaskit
