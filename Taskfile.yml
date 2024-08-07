@@ -1,0 +1,15 @@
+version: '3'
+
+env:
+  TEST: test
+  APP: app
+tasks:
+  up:
+    dir: $SERVER
+    silent: true
+    cmds:
+      - task up
+  get:
+    cmds:
+      - flutter pub get
+      - cd $APP && flutter pub get

@@ -1,0 +1,13 @@
+version: '3'
+
+env:
+  TEST: test
+  APP: app
+tasks:
+  build:
+    cmds:
+      - flutter build web
+  deploy:
+    cmds:
+      - task build
+      - firebase deploy --only hosting
