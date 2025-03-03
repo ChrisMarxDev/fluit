@@ -194,7 +194,7 @@ class ScaleDetailsWidget extends StatelessWidget {
           Text('Scale', style: context.t2),
           CountSelector(
             value: frame.value,
-            max: 1,
+            max: 2,
             step: 0.05,
             onChanged: (value) {
               final keyFrame = frame.copyWith(relativeRect: value);
@@ -205,14 +205,15 @@ class ScaleDetailsWidget extends StatelessWidget {
             },
           ),
           AlignmentDropdown(
-              onChanged: (value) {
-                final keyFrame = frame.copyWith(alignment: value);
-                studioStateController.of(context).setKeyFrameByPath(
-                      path,
-                      keyFrame,
-                    );
-              },
-              selectedElement: frame.alignment),
+            onChanged: (value) {
+              final keyFrame = frame.copyWith(alignment: value);
+              studioStateController.of(context).setKeyFrameByPath(
+                    path,
+                    keyFrame,
+                  );
+            },
+            selectedElement: frame.alignment,
+          ),
         ],
       ),
     );
@@ -417,14 +418,15 @@ class SizeDetailsWidget extends StatelessWidget {
           ),
           const SizedBox(height: 8),
           AxisDropdown(
-              onChanged: (value) {
-                final keyFrame = frame.copyWith(axis: value);
-                studioStateController.of(context).setKeyFrameByPath(
-                      path,
-                      keyFrame,
-                    );
-              },
-              selectedElement: frame.axis),
+            onChanged: (value) {
+              final keyFrame = frame.copyWith(axis: value);
+              studioStateController.of(context).setKeyFrameByPath(
+                    path,
+                    keyFrame,
+                  );
+            },
+            selectedElement: frame.axis,
+          ),
         ],
       ),
     );

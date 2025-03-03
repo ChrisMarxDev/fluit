@@ -10,7 +10,6 @@ environment:
 dependencies:
   collection: ^1.18.0
   dart_style: ^2.3.6
-  drop_shadow: ^0.1.0
   flutter:
     sdk: flutter
   flutter_svg: ^2.0.10+1
