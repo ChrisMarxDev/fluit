@@ -60,7 +60,6 @@ ThemeData getThemeData({
     colorScheme: ColorScheme.light(
       primary: primary,
       secondary: secondary,
-      onSecondary: kBlack,
       surface: isDarkMode ? kGrey1 : kWhite,
       // surface: offWhite,
     ),

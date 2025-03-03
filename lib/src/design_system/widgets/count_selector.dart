@@ -74,7 +74,10 @@ class _CountSelectorState extends State<CountSelector> {
                 widget.onChanged?.call(widget.min);
               }
             },
-            child: const Icon(Icons.remove),
+            child: Icon(
+              Icons.remove,
+              color: context.onPrimary,
+            ),
           ),
           const SizedBox(width: 8),
           Container(
@@ -125,7 +128,10 @@ class _CountSelectorState extends State<CountSelector> {
                 widget.onChanged?.call(widget.max);
               }
             },
-            child: const Icon(Icons.add),
+            child: Icon(
+              Icons.add,
+              color: context.onPrimary,
+            ),
           ),
         ],
       ),

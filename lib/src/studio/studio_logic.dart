@@ -7,7 +7,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:state_beacon/state_beacon.dart';
 import 'package:uuid/uuid.dart';
 
-import 'features/code/code_generator.dart';
+import 'package:fluit/src/studio/features/code/code_generator.dart';
 
 String get randomId {
   return const Uuid().v4();
@@ -22,7 +22,7 @@ final exampleState = FluitAnimationState(
           type: AnimationType.rotation,
           id: randomId,
           animationFrames: [
-            RotationTransitionFrame(id: randomId, value: 0),
+            RotationTransitionFrame(id: randomId),
             RotationTransitionFrame(id: randomId, position: 0.5),
             RotationTransitionFrame(id: randomId, position: 0.8, value: 0.5),
           ],
@@ -81,7 +81,9 @@ class StudioController extends BeaconController {
     () async {
       final animationsState = state.value;
 
-      return CodeGenerator().generateCode(animationsState, 3000);
+      final code = CodeGenerator().generateCode(animationsState, 3000);
+      print('code: $code');
+      return code;
     },
   );
 

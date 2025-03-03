@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:state_beacon/state_beacon.dart';
 import 'package:syntax_highlight/syntax_highlight.dart';
 
-import '../../studio_logic.dart';
+import 'package:fluit/src/studio/studio_logic.dart';
 
 final highlighterFutureBeacon = Beacon.future<Highlighter>(
   () async {
@@ -31,8 +31,8 @@ final highlighterFutureBeacon = Beacon.future<Highlighter>(
 
 class CodeView extends StatelessWidget {
   const CodeView({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -43,8 +43,10 @@ class CodeView extends StatelessWidget {
         highlighter: highlighter.unwrapValue(),
         code: code.unwrap(),
       );
+    } else if (code.isError) {
+      return Center(child: Text((code as AsyncError).error.toString()));
     } else {
-      return Center(child: const CircularProgressIndicator());
+      return const Center(child: CircularProgressIndicator());
     }
   }
 }
@@ -59,8 +61,9 @@ class HighlightView extends StatelessWidget {
   final Highlighter highlighter;
   final String code;
 
+  @override
   Widget build(BuildContext context) {
-    var highlightedCode = highlighter.highlight(code);
+    final highlightedCode = highlighter.highlight(code);
     return Column(
       children: [
         Row(
@@ -80,8 +83,10 @@ class HighlightView extends StatelessWidget {
           ],
         ),
         Expanded(
-            child: SingleChildScrollView(
-                child: SelectableText.rich(highlightedCode))),
+          child: SingleChildScrollView(
+            child: SelectableText.rich(highlightedCode),
+          ),
+        ),
       ],
     );
   }
